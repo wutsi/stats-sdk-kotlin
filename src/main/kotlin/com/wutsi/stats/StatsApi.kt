@@ -1,7 +1,9 @@
 package com.wutsi.stats
 
 import com.wutsi.stats.dto.SearchStoryKpiResponse
+import com.wutsi.stats.dto.SearchStoryTrafficResponse
 import com.wutsi.stats.dto.SearchUserKpiResponse
+import com.wutsi.stats.dto.SearchUserTrafficResponse
 import com.wutsi.stats.dto.SearchViewResponse
 import feign.Param
 import feign.RequestLine
@@ -60,6 +62,24 @@ public interface StatsApi {
     @Param("limit") limit: Int = 20,
     @Param("offset") offset: Int = 0
   ): SearchUserKpiResponse
+
+  @RequestLine("GET /v1/traffics/users/{user-id}/monthly?user-id={user-id}&year={year}&month={month}&limit={limit}&offset={offset}")
+  public fun userMonthlyTraffic(
+    @Param("user-id") userId: Long,
+    @Param("year") year: Int,
+    @Param("month") month: Int? = null,
+    @Param("limit") limit: Int = 20,
+    @Param("offset") offset: Int = 0
+  ): SearchUserTrafficResponse
+
+  @RequestLine("GET /v1/traffics/stories/{story-id}/monthly?story-id={story-id}&year={year}&month={month}&limit={limit}&offset={offset}")
+  public fun storyMonthlyTraffic(
+    @Param("story-id") storyId: Long,
+    @Param("year") year: Int,
+    @Param("month") month: Int? = null,
+    @Param("limit") limit: Int = 20,
+    @Param("offset") offset: Int = 0
+  ): SearchStoryTrafficResponse
 
   @RequestLine("GET /v1/stories/import")
   public fun importStories(): Unit

@@ -33,20 +33,22 @@ public interface StatsApi {
   public fun replayMonthly(@Param("start-date") startDate: LocalDate, @Param("end-date")
       endDate: LocalDate? = null): Unit
 
-  @RequestLine("GET /v1/kpis/stories/{story-id}/daily?story-id={story-id}&type={type}&start-date={start-date}&end-date={end-date}&limit={limit}&offset={offset}")
+  @RequestLine("GET /v1/kpis/stories/daily?story-id={story-id}&user-id={user-id}&type={type}&start-date={start-date}&end-date={end-date}&limit={limit}&offset={offset}")
   public fun storyDailyKpis(
-    @Param("story-id") storyId: Long,
-    @Param("type") type: String,
+    @Param("story-id") storyId: Long? = null,
+    @Param("user-id") userId: Long? = null,
+    @Param("type") type: String? = null,
     @Param("start-date") startDate: LocalDate? = null,
     @Param("end-date") endDate: LocalDate? = null,
     @Param("limit") limit: Int = 20,
     @Param("offset") offset: Int = 0
   ): SearchStoryKpiResponse
 
-  @RequestLine("GET /v1/kpis/stories/{story-id}/monthly?story-id={story-id}&type={type}&year={year}&month={month}&limit={limit}&offset={offset}")
+  @RequestLine("GET /v1/kpis/stories/monthly?story-id={story-id}&user-id={user-id}&type={type}&year={year}&month={month}&limit={limit}&offset={offset}")
   public fun storyMonthlyKpis(
-    @Param("story-id") storyId: Long,
-    @Param("type") type: String,
+    @Param("story-id") storyId: Long? = null,
+    @Param("user-id") userId: Long? = null,
+    @Param("type") type: String? = null,
     @Param("year") year: Int,
     @Param("month") month: Int? = null,
     @Param("limit") limit: Int = 20,

@@ -55,7 +55,7 @@ public interface StatsApi {
     @Param("offset") offset: Int = 0
   ): SearchStoryKpiResponse
 
-  @RequestLine("GET /v1/kpis/users/{user-id}/monthly?user-id={user-id}&type={type}&year={year}&month={month}&limit={limit}&offset={offset}")
+  @RequestLine("GET /v1/kpis/users/{user-id}/monthly?type={type}&year={year}&month={month}&limit={limit}&offset={offset}")
   public fun userMonthlyKpis(
     @Param("user-id") userId: Long,
     @Param("type") type: String,
@@ -65,7 +65,11 @@ public interface StatsApi {
     @Param("offset") offset: Int = 0
   ): SearchUserKpiResponse
 
-  @RequestLine("GET /v1/traffics/users/{user-id}/monthly?user-id={user-id}&year={year}&month={month}&limit={limit}&offset={offset}")
+  @RequestLine("GET /v1/kpis/users/{user-id}/monthly/email?date={date}")
+  public fun emailUserMonthlyKpis(@Param("user-id") userId: Long, @Param("date") date: LocalDate):
+      Unit
+
+  @RequestLine("GET /v1/traffics/users/{user-id}/monthly?year={year}&month={month}&limit={limit}&offset={offset}")
   public fun userMonthlyTraffic(
     @Param("user-id") userId: Long,
     @Param("year") year: Int,
@@ -74,7 +78,7 @@ public interface StatsApi {
     @Param("offset") offset: Int = 0
   ): SearchUserTrafficResponse
 
-  @RequestLine("GET /v1/traffics/stories/{story-id}/monthly?story-id={story-id}&year={year}&month={month}&limit={limit}&offset={offset}")
+  @RequestLine("GET /v1/traffics/stories/{story-id}/monthly?year={year}&month={month}&limit={limit}&offset={offset}")
   public fun storyMonthlyTraffic(
     @Param("story-id") storyId: Long,
     @Param("year") year: Int,

@@ -9,5 +9,5 @@ public data class StoryKpi(
   public val storyId: Long = 0,
   public val type: String = "",
   public val date: LocalDate = LocalDate.now(),
-  public val value: Long = 0
+  public val `value`: Long = 0
 )

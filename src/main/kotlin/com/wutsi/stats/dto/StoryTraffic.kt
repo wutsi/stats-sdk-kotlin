@@ -8,5 +8,5 @@ public data class StoryTraffic(
   public val name: String? = null,
   public val storyId: Long = 0,
   public val date: LocalDate = LocalDate.now(),
-  public val value: Long = 0
+  public val `value`: Long = 0
 )

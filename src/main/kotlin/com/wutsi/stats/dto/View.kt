@@ -1,7 +1,6 @@
 package com.wutsi.stats.dto
 
 import java.time.OffsetDateTime
-import kotlin.Int
 import kotlin.Long
 import kotlin.String
 
@@ -17,5 +16,5 @@ public data class View(
   public val referer: String? = null,
   public val viewDateTime: OffsetDateTime = OffsetDateTime.now(),
   public val traffic: String? = null,
-  public val readTimeSeconds: Int = 0
+  public val readTimeSeconds: Long = 0
 )

@@ -6,7 +6,7 @@
 
   <artifactId>stats-sdk-kotlin</artifactId>
   <groupId>com.wutsi.stats</groupId>
-  <version>1.2.6</version>
+  <version>1.2.7-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>stats-sdk-kotlin</name>
@@ -50,7 +50,7 @@
 
   <scm>
     <developerConnection>scm:git:https://github.com/wutsi/stats-sdk-kotlin.git</developerConnection>
-    <tag>stats-sdk-kotlin-1.2.6</tag>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <repository>
